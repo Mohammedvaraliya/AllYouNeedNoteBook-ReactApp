@@ -25,6 +25,7 @@ router.post('/createuser', [
             return res.status(400).json({ error: 'Sorry a user with this email already exists' })
         }
 
+        // Create a new user
         user = await User.create({
             name: req.body.name,
             email: req.body.email,
