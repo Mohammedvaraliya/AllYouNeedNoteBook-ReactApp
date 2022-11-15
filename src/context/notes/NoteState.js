@@ -11,7 +11,6 @@ const NoteState = (props) => {
 
   // Get all Note
   const getNotes = async () => {
-    console.log("Get all note")
     // API cal
       const response = await fetch(`${host}/api/notes/fetchallnotes`, {
       method: 'GET',
@@ -21,16 +20,13 @@ const NoteState = (props) => {
       }
     });
     const json = await response.json();
-    console.log(json);
     setNotes(json);
-    
 
   }
 
   // Add a Note
   const addNote = async (title, description, tag) => {
-    console.log("Adding a new note")
-    // TODO : API call
+    
     // API cal
     const response = await fetch(`${host}/api/notes/addnote`, {
       method: 'POST',
@@ -41,18 +37,7 @@ const NoteState = (props) => {
       body: JSON.stringify({ title, description, tag })
     });
 
-    const json = await response.json();
-    console.log(json);
-
-    const note = {
-      "_id": "636a48b3793abzzzx51763ff61e07",
-      "user": "635ac7098ee056d874ed8936",
-      "title": title,
-      "description": description,
-      "tag": tag,
-      "date": "2022-11-08T12:16:51.712Z",
-      "__v": 0
-    };
+    const note = await response.json();
     setNotes(notes.concat(note));
 
   }
@@ -68,9 +53,7 @@ const NoteState = (props) => {
       }
     });
     const json = await response.json();
-    console.log(json)
 
-    console.log("Deleting the note with id " + id);
     const newNotes = notes.filter((note) => {
       return note._id !== id
     });
@@ -80,7 +63,7 @@ const NoteState = (props) => {
 
   // Edit a Note
   const editNote = async (id, title, description, tag) => {
-    console.log("Editing the note");
+    
     // API call
     const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
       method: 'PUT',
@@ -91,7 +74,6 @@ const NoteState = (props) => {
       body: JSON.stringify({ title, description, tag })
     });
     const json = await response.json();
-    console.log(json)
 
     let newNotes = JSON.parse(JSON.stringify(notes));
     // Logic to edit in client
@@ -106,7 +88,6 @@ const NoteState = (props) => {
       
     }
     setNotes(newNotes);
-    console.log(notes)
 
 
   }
