@@ -51,7 +51,7 @@ router.post('/createuser', [
 
         const authToken = jwt.sign(data, JWT_SECRET);
 
-        const success = true;
+        success = true;
 
         // res.json(user)
         res.json({ success, authToken });
@@ -109,6 +109,9 @@ router.post('/login', [
 
 // ROUTE 3: Get loggedin User Details using : POST "/api/auth/getuser". Login required
 router.post('/getuser', fetchuser, async (req, res) => {
+
+    let success = false;
+
     try {
         const userId = req.user.id;
         const user = await User.findById(userId).select("-password");
@@ -116,7 +119,7 @@ router.post('/getuser', fetchuser, async (req, res) => {
 
     } catch (error) {
         console.error(error.message)
-        res.status(500).send("Internal Server Error");
+        res.status(500).send( success, "Internal Server Error");
     }
 
 })
