@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = (props) => {
 
-    const [credentials, seCredentials] = useState({email: "", password: ""});
-    let nevigate = useNavigate()
+    const { showAlert } = props;
+
+    const [credentials, seCredentials] = useState({ email: "", password: "" });
+    let nevigate = useNavigate();
 
     const host = "http://localhost:5000";
 
@@ -21,13 +23,14 @@ const Login = () => {
         });
         const json = await response.json();
         console.log(json);
-        if (json.success){
+        if (json.success) {
             // save the auth token and redirect
             localStorage.setItem('token', json.authToken);
+            showAlert(`Successfully Logged in with email ${credentials.email}`, "success");
             nevigate("/");
         }
-        else{
-            alert("Invalid Credentials")
+        else {
+            showAlert("Invalid Credentials! Please try again", "danger");
         }
     }
 
@@ -37,18 +40,21 @@ const Login = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" value={credentials.email} id="email" name='email' aria-describedby="emailHelp" onChange={onChange} />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" value={credentials.password} id="password" name='password' onChange={onChange} />
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+            <div className='mt-3'>
+                <h2>Login to continue to AllYouNeedNotebook App</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label htmlFor="email" className="form-label">Email address</label>
+                        <input type="email" className="form-control" value={credentials.email} id="email" name='email' aria-describedby="emailHelp" onChange={onChange} />
+                        <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="password" className="form-label">Password</label>
+                        <input type="password" className="form-control" value={credentials.password} id="password" name='password' onChange={onChange} />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </>
     )
 }

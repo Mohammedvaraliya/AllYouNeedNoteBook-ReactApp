@@ -3,13 +3,14 @@ import noteContext from '../context/notes/noteContext';
 
 const Noteitem = (props) => {
 
-    const { note, updateNote } = props;
+    const { note, updateNote, showAlert } = props;
 
     const context = useContext(noteContext);
     const { deleteNote } = context;
 
     const handleDelete = () => {
         deleteNote(note._id);
+        showAlert(`Note with title ${note.title} deleted successfully!`, "success");
     }
 
     return (

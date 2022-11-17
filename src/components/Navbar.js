@@ -1,11 +1,21 @@
-import React, {useEffect} from 'react'
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect } from 'react'
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+    let nevigate = useNavigate();
+
+    let { userDetail } = props;
 
     let location = useLocation();
     useEffect(() => {
-      }, [location]);
+    }, [location]);
+
+    const handleLogout = () => {
+        localStorage.clear();
+        nevigate("/login");
+
+    }
 
     return (
         <>
@@ -18,17 +28,25 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className={`nav-link ${location.pathname==='/home'? 'active' : "" }`} aria-current="page" to="/home">Home</Link>
+                                <Link className={`nav-link ${location.pathname === '/home' ? 'active' : ""}`} aria-current="page" to="/home">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link ${location.pathname==='/about'? 'active' : "" }`} to="/about">About</Link>
+                                <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ""}`} to="/about">About</Link>
                             </li>
-                            
+
                         </ul>
-                        <form className="d-flex" role="search">
+                        {!localStorage.getItem('token') ? <form className="d-flex">
                             <Link className="btn btn-primary mx-1" to={'/login'} role="button">Login</Link>
                             <Link className="btn btn-primary mx-1" to={'/signup'} role="button">Signup</Link>
-                        </form>
+                        </form> :
+                            <div className="dropdown">
+                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Welcome {userDetail}
+                                </button>
+                                <ul className="dropdown-menu dropdown-menu-dark">
+                                    <li><a className="dropdown-item btn btn-secondary" onClick={handleLogout}>Logout</a></li>
+                                </ul>
+                            </div>}
                     </div>
                 </div>
             </nav>
