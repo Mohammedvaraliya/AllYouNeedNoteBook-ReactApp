@@ -14,7 +14,7 @@ const Signup = (props) => {
     e.preventDefault();
     console.log("submit button clicked");
     // API cal
-    const { name, email, password } = credentials;
+    const { name, email, password, cpassword } = credentials;
     const response = await fetch(`${host}/api/auth/createuser`, {
       method: 'POST',
       headers: {
@@ -42,7 +42,7 @@ const Signup = (props) => {
   return (
     <>
       <div className='mt-3'>
-        <h2>SignUp to continue to AllYouNeedNotebook App</h2>
+        <h2>Create an account to use AllYouNeedNotebook App</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">Name</label>
@@ -65,7 +65,7 @@ const Signup = (props) => {
             <input type="password" className="form-control" value={credentials.cpassword} id="cpassword" name='cpassword' onChange={onChange} minLength={5} required />
           </div>
 
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button disabled={credentials.password != credentials.cpassword} type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
     </>

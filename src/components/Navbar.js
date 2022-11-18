@@ -5,7 +5,7 @@ const Navbar = (props) => {
 
     const host = "http://localhost:5000";
 
-    const [userName, setUserName] = useState("");
+    const [userName, setUserName] = useState("user");
 
     let nevigate = useNavigate();
 
@@ -19,7 +19,7 @@ const Navbar = (props) => {
 
     }
 
-    const userDetail = async (req, res) => {
+    const userDetail = async () => {
         if (localStorage.getItem('token')){
           const response = await fetch(`${host}/api/auth/getuser`, {
             method: 'POST',
@@ -57,15 +57,17 @@ const Navbar = (props) => {
                         {!localStorage.getItem('token') ? <form className="d-flex">
                             <Link className="btn btn-primary mx-1" to={'/login'} role="button">Login</Link>
                             <Link className="btn btn-primary mx-1" to={'/signup'} role="button">Signup</Link>
-                        </form> :
+                        </form> : <>
                             <div className="dropdown">
+                                
                                 <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={userDetail}>
                                     Welcome {userName}
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-dark">
                                     <li><a className="dropdown-item btn btn-secondary" onClick={handleLogout}>Logout</a></li>
                                 </ul>
-                            </div>}
+                            </div>
+                            </>}
                     </div>
                 </div>
             </nav>
