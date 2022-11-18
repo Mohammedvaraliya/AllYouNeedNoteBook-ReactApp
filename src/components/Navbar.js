@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
 
-    let nevigate = useNavigate();
+    const host = "http://localhost:5000";
 
-    let { userDetail } = props;
+    const [userName, setUserName] = useState("");
+
+    let nevigate = useNavigate();
 
     let location = useLocation();
     useEffect(() => {
@@ -16,6 +18,23 @@ const Navbar = (props) => {
         nevigate("/login");
 
     }
+
+    const userDetail = async (req, res) => {
+        if (localStorage.getItem('token')){
+          const response = await fetch(`${host}/api/auth/getuser`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'auth-token': localStorage.getItem('token')
+            },
+            
+          });
+          const userName1 = await response.json();
+          console.log(userName1.name);
+          setUserName(userName1.name);
+          
+        }
+      }
 
     return (
         <>
@@ -40,8 +59,8 @@ const Navbar = (props) => {
                             <Link className="btn btn-primary mx-1" to={'/signup'} role="button">Signup</Link>
                         </form> :
                             <div className="dropdown">
-                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Welcome {userDetail}
+                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={userDetail}>
+                                    Welcome {userName}
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-dark">
                                     <li><a className="dropdown-item btn btn-secondary" onClick={handleLogout}>Logout</a></li>

@@ -15,9 +15,8 @@ import { useState } from 'react';
 
 function App() {
 
-  const host = "http://localhost:5000";
-
   const [alert, setAlert] = useState(null);
+
 
   const showAlert = (message, type) => {
     setAlert({
@@ -30,25 +29,11 @@ function App() {
 
   }
 
-  const userDetail = async (req, res) => {
-    if (localStorage.getItem('token')){
-      const response = await fetch(`${host}/api/auth/getuser`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'auth-token': localStorage.getItem('token')
-        },
-        
-      });
-      
-    }
-  }
-
   return (
     <>
     <NoteState>
       <Router>
-        <Navbar userDetail={userDetail} />
+        <Navbar />
         <Alert alert={alert} />
         <div className="container">
         <Routes>
