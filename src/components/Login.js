@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
 
-    const { showAlert } = props;
+    const { showAlert, userDetail } = props;
 
     const [credentials, seCredentials] = useState({ email: "", password: "" });
     let nevigate = useNavigate();
@@ -32,6 +32,8 @@ const Login = (props) => {
         else {
             showAlert("Invalid Credentials! Please try again", "danger");
         }
+        userDetail();
+
     }
 
     const onChange = (e) => {

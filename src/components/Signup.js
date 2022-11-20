@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Signup = (props) => {
 
-  const { showAlert } = props;
+  const { showAlert, userDetail } = props;
 
   const [credentials, seCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
   let nevigate = useNavigate();
@@ -14,7 +14,7 @@ const Signup = (props) => {
     e.preventDefault();
     console.log("submit button clicked");
     // API cal
-    const { name, email, password, cpassword } = credentials;
+    const { name, email, password } = credentials;
     const response = await fetch(`${host}/api/auth/createuser`, {
       method: 'POST',
       headers: {
@@ -29,6 +29,7 @@ const Signup = (props) => {
       localStorage.setItem('token', json.authToken);
       nevigate("/");
       showAlert(`Accout Created Successfully with name ${credentials.name}`, "success");
+      userDetail();
     }
     else {
       showAlert("Invalid Details! Please try again", "danger");
@@ -65,7 +66,7 @@ const Signup = (props) => {
             <input type="password" className="form-control" value={credentials.cpassword} id="cpassword" name='cpassword' onChange={onChange} minLength={5} required />
           </div>
 
-          <button disabled={credentials.password != credentials.cpassword} type="submit" className="btn btn-primary">Submit</button>
+          <button disabled={credentials.password !== credentials.cpassword} type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
     </>

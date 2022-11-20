@@ -3,14 +3,15 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
 
-    const host = "http://localhost:5000";
+    const { userDetail, userName } = props;
 
-    const [userName, setUserName] = useState();
+    const host = "http://localhost:5000";
 
     let nevigate = useNavigate();
 
     let location = useLocation();
     useEffect(() => {
+        userDetail()
     }, [location]);
 
     const handleLogout = () => {
@@ -18,23 +19,6 @@ const Navbar = (props) => {
         nevigate("/login");
 
     }
-
-    const userDetail = async () => {
-        if (localStorage.getItem('token')){
-          const response = await fetch(`${host}/api/auth/getuser`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'auth-token': localStorage.getItem('token')
-            },
-            
-          });
-          const userName1 = await response.json();
-          console.log(userName1.name);
-          setUserName(userName1.name);
-          
-        }
-      }
 
     return (
         <>
@@ -60,7 +44,7 @@ const Navbar = (props) => {
                         </form> : <>
                             <div className="dropdown">
                                 
-                                <button className="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={userDetail}>
+                                <button className="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Welcome {userName}
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-dark">

@@ -3,11 +3,11 @@ import Notes from './Notes';
 
 const Home = (props) => {
 
-  const {showAlert} = props;
+  const {showAlert, userDetail } = props;
 
   return (
     <>
-      <Notes showAlert={showAlert} />
+      <Notes showAlert={showAlert} userDetail={userDetail} />
     </>
   )
 }
