@@ -5,7 +5,7 @@ const Navbar = (props) => {
 
     const host = "http://localhost:5000";
 
-    const [userName, setUserName] = useState("user");
+    const [userName, setUserName] = useState();
 
     let nevigate = useNavigate();
 
@@ -60,7 +60,7 @@ const Navbar = (props) => {
                         </form> : <>
                             <div className="dropdown">
                                 
-                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={userDetail}>
+                                <button className="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={userDetail}>
                                     Welcome {userName}
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-dark">
