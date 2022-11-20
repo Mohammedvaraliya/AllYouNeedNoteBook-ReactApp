@@ -68,7 +68,7 @@ const Signup = (props) => {
 
           <button disabled={credentials.password !== credentials.cpassword} type="submit" className="btn btn-primary">Submit</button>
         </form>
-      </div>
+      </div>  
     </>
   )
 }
