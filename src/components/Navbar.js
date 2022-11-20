@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
 
-    const { userDetail, userName } = props;
+    const { userDetail, userName, showAlert } = props;
 
     const host = "http://localhost:5000";
 
@@ -17,6 +17,7 @@ const Navbar = (props) => {
     const handleLogout = () => {
         localStorage.clear();
         nevigate("/login");
+        showAlert(`Successfully Logged Out!`, "success")
 
     }
 
