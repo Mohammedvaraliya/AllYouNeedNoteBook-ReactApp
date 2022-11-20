@@ -11,7 +11,7 @@ const Navbar = (props) => {
 
     let location = useLocation();
     useEffect(() => {
-        userDetail()
+        userDetail();
     }, [location]);
 
     const handleLogout = () => {
