@@ -1,11 +1,19 @@
 const mongoose = require('mongoose');
 
-const mongoURI = 'mongodb://localhost:27017/AllYouNeedNotebook?directConnection=true&readPreference=primary';
+const server = 'localhost:27017';
+const database = 'AllYouNeedNotebook';
 
-const connectToMongo = () => {
-    mongoose.connect(mongoURI, ()=>{
+const mongoURI = `mongodb://${server}/${database}?directConnection=true&readPreference=primary`;
+
+const connectToMongo = async () => {
+    try {
+        await mongoose.connect(mongoURI, ()=>{
         console.log("Connected to mongo successfully");
     })
+    } catch (error) {
+        console.log("Failed to connect to MongoDB", error)
+    }
+    
 }
 
 module.exports = connectToMongo;
