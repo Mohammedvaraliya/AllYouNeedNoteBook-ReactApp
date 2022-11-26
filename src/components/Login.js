@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import style from './css/Login.scss';
+import logo from './logo & image/LoginLogo.png'
+import loginimg from './logo & image/welcome-6482989_1280.png';
 
 const Login = (props) => {
 
@@ -41,11 +43,16 @@ const Login = (props) => {
 
     return (
         <>
+        <div className="container">
             <div className="main-login">
                 <div className='mt-3'>
                     <h2>Login to continue to AllYouNeedNotebook App</h2>
                     <div className="login-contain">
                         <div className="left-side">
+                            <div className="img-class">
+                                <img src={logo} id="img-id" alt="img" />
+                            </div>
+
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3">
                                 <label htmlFor="email" className="form-label">Email address</label>
@@ -58,12 +65,25 @@ const Login = (props) => {
                             </div>
                             <button type="submit" className="btn btn-primary" id='sub-button'>Submit</button>
                         </form>
+
+                        <div className="footer mt-4">
+                            <h6>Don't have an Account ? <Link className='link' to={'/signup'}>Signup</Link></h6>
+                        </div>
+
                         </div>
                         <div className="right-side">
+                            <div className="welcomeNote">
+                                <h3>welcome back!</h3>
+                            </div>
+
+                            <div className="welcomeImg">
+                                <img src={loginimg} id='wel-img-id' alt="" />
+                            </div>
 
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     )

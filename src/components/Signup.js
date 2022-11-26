@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import style from './css/Signup.scss';
+import logo from './logo & image/SignupLogo.png';
+import registerImage from './logo & image/Signup2.png';
 
 
 const Signup = (props) => {
@@ -42,9 +44,25 @@ const Signup = (props) => {
 
   return (
     <>
-      <div className='mt-3'>
+      <div className="main-Register">
+        {/* <div className='mt-3'>
         <h2>Create an account to use AllYouNeedNotebook App</h2>
-        <form onSubmit={handleSubmit}>
+        </div> */}
+
+        <div className="left-side">
+          <div className="header">
+            <img src={logo} id='logo-img' alt="" />
+          </div>
+
+          <div className="body">
+            <img src={registerImage} id='reg-img' alt="" />
+          </div>
+
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita minus blanditiis molestiae quia cumque veniam nam pariatur aut, iste aliquid sapiente maxime debitis dolore soluta harum libero repudiandae tempore illo deleniti exercitationem. Repellendus, molestias.</p>
+
+        </div>
+
+        {/* <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">Name</label>
             <input type="text" className="form-control" value={credentials.name} id="name" name='name' onChange={onChange} minLength={3} required />
@@ -67,8 +85,53 @@ const Signup = (props) => {
           </div>
 
           <button disabled={credentials.password !== credentials.cpassword} type="submit" className="btn btn-primary">Submit</button>
-        </form>
-      </div>  
+        </form> */}
+
+
+
+        <div className="right-side">
+          <div className="top-right">
+            <h5>Already have an Account?
+              <Link id='Links-signin' to={'/login'} >Sign In</Link></h5>
+          </div>
+
+          <div className="body-right">
+            <div className="body-conatainer">
+              
+              <div className="input-group">
+                <form onSubmit={handleSubmit}>
+                  <div className="mb-3">
+                    <label htmlFor="name" className="form-label">Name</label>
+                    <input type="text" className="form-control" value={credentials.name} id="name" name='name' onChange={onChange} minLength={3} required />
+                  </div>
+
+                  <div className="mb-3">
+                    <label htmlFor="email" className="form-label">Email address</label>
+                    <input type="email" className="form-control" value={credentials.email} id="email" name='email' aria-describedby="emailHelp" onChange={onChange} required />
+                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                  </div>
+
+                  <div className="mb-3">
+                    <label htmlFor="password" className="form-label">Password</label>
+                    <input type="password" className="form-control" value={credentials.password} id="password" name='password' onChange={onChange} minLength={5} required />
+                  </div>
+
+                  <div className="mb-3">
+                    <label htmlFor="cpassword" className="form-label">Confirm Password</label>
+                    <input type="password" className="form-control" value={credentials.cpassword} id="cpassword" name='cpassword' onChange={onChange} minLength={5} required />
+                  </div>
+
+                  <button disabled={credentials.password !== credentials.cpassword} type="submit" className="btn btn-primary">Submit</button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
     </>
   )
 }

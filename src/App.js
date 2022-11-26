@@ -54,7 +54,6 @@ function App() {
       <Router>
         <Navbar showAlert={showAlert} userDetail={userDetail} userName={userName} />
         <Alert alert={alert} />
-        <div className="container">
         <Routes>
           <Route exact path="/" element={<Home showAlert={showAlert} />} />
           <Route exact path="/home" element={<Home showAlert={showAlert} />} />
@@ -62,7 +61,6 @@ function App() {
           <Route exact path="/login" element={<Login showAlert={showAlert} userDetail={userDetail} />} />
           <Route exact path="/signup" element={<Signup showAlert={showAlert} userDetail={userDetail} />} />
         </Routes>
-        </div>
       </Router>
       </NoteState>
     </>

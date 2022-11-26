@@ -7,7 +7,9 @@ const Home = (props) => {
 
   return (
     <>
+    <div className="container">
       <Notes showAlert={showAlert} userDetail={userDetail} />
+      </div>
     </>
   )
 }

@@ -16,6 +16,20 @@ $main-color: #4dd6b6;
         display: flex;
         justify-content: center;
         align-items: center;
+        .link{
+            text-decoration: none;
+            color: $main-color;
+            transition: all 0.3s ease;
+            &:hover{
+                transform: translateY(-5px);
+                color: gray;
+            }
+        }
+        .footer{
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
 
         .left-side, .right-side{
             margin: 2rem;
@@ -29,6 +43,16 @@ $main-color: #4dd6b6;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            .img-class{
+                height: 4.5rem;
+                margin-left: auto;
+                margin-right: auto;
+                #img-id{
+                    height: 100%;
+                    object-fit: cover;
+
+                }
+            }
             input{
                 display: block;
                 outline: none;
@@ -71,6 +95,26 @@ $main-color: #4dd6b6;
                 }
 
 
+            }
+        }
+
+        .right-side{
+            .welcomeNote{
+                h3{
+                    margin-left: 1rem;
+                    color: black;
+                    float: left;
+                    margin-bottom: 2.5rem;
+                }
+            }
+            .welcomeImg{
+                height: 80%;
+                width: 100%;
+                margin: 0rem auto;
+                #wel-img-id{
+                    width: 100%;
+                    object-fit: cover;
+                }
             }
         }
 

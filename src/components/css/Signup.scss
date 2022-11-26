@@ -1,0 +1,76 @@
+$secondary-color: #26343D;
+
+.main-Register{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    .left-side{
+        flex: 0.33;
+        background-color: $secondary-color;
+        .header{
+            height: 15rem;
+            margin-top: 2rem;
+            #logo-img{
+                height: 100%;
+                object-fit: cover;
+            }
+
+        }
+        .body{
+            height: 20rem;
+            margin-top: 2rem;
+            background: white;
+            #reg-img{
+                height: 100%;
+                width: 70%;
+                object-fit: cover;
+            }
+        }
+        p{
+            color: white;
+            padding: 1.8rem 0.8rem;
+            text-align: left;
+            font-size: smaller;
+        }
+    }
+    .right-side{
+        flex: 0.67;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        .top-right{
+            float: right;
+            margin-right: 3rem;
+            font-size: small;
+            font-weight: 200;
+            #Links-signin{
+                text-decoration: none;
+                font-style: 600;
+                margin-left: .3rem; 
+                cursor: pointer;
+                color: gray;
+                &:hover{
+                    color: aqua;
+                }
+            }
+        }
+        .body-right{
+            height: 100%;
+            width: 100%;
+            .body-conatainer{
+                height: 80%;
+                width: 60%;
+                margin: 2rem auto;
+                box-shadow: 0rem 0rem 2rem 0.1rem #48ea98;
+                border-radius: 0.5rem;
+                .input-group{
+                    width: 60%;
+                    
+                }
+            }
+        }
+    }
+}
