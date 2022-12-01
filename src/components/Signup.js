@@ -44,6 +44,7 @@ const Signup = (props) => {
 
   return (
     <>
+    <div className="container">
       <div className="main-Register">
         {/* <div className='mt-3'>
         <h2>Create an account to use AllYouNeedNotebook App</h2>
@@ -131,6 +132,7 @@ const Signup = (props) => {
         </div>
 
 
+      </div>
       </div>
     </>
   )

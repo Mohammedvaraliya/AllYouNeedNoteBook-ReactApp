@@ -108,9 +108,10 @@ $main-color: #4dd6b6;
                 }
             }
             .welcomeImg{
-                height: 80%;
+                height: 100%;
                 width: 100%;
                 margin: 0rem auto;
+                position: relative;
                 #wel-img-id{
                     width: 100%;
                     object-fit: cover;
