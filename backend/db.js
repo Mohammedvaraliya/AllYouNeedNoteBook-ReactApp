@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const server = 'localhost:27017';
+const server = '127.0.0.1:27017';
 const database = 'AllYouNeedNotebook';
 
 const mongoURI = `mongodb://${server}/${database}?directConnection=true&readPreference=primary`;
