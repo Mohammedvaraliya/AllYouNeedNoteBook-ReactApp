@@ -77,14 +77,22 @@
 
 $main-color: #4dd6b6;
 
+.signupbody{
+    background: linear-gradient(to right, rgb(252, 252, 252) 50%, $main-color 50%);
+
+
+.container{
+    background: linear-gradient(to right, rgb(252, 252, 252) 50%, $main-color 50%);
+
+
 .main-Register {
     min-height: 100vh;
     min-width: 100vh;
     background: linear-gradient(to right, rgb(252, 252, 252) 50%, $main-color 50%);
 
-    .login-contain {
+    .signup-contain {
         height: 75vh;
-        width: 70%;
+        width: 80%;
         background-color: #4dd6b6;
         background: linear-gradient(to right bottom, rgba(236, 236, 236, 0.7), rgba(236, 236, 236, 0.4));
         border-radius: 1rem;
@@ -111,7 +119,7 @@ $main-color: #4dd6b6;
         .left-side, .right-side{
             margin: 2rem;
             // box-shadow: 0.5rem 0.5rem 2rem -1rem rgb(58, 57, 57);
-            height: 80%;
+            height: 70%;
             width: 100%;
 
         }
@@ -136,7 +144,7 @@ $main-color: #4dd6b6;
                 height: 2rem;
                 width: 100%;
                 margin: auto;
-                margin-bottom: 1.5rem;
+                // margin-bottom: 1.5rem;
                 transition: all 0.1s ease-in-out;
                 padding: 0.2rem 1rem;
                 &:focus{
@@ -187,14 +195,16 @@ $main-color: #4dd6b6;
             .welcomeImg{
                 height: 100%;
                 width: 100%;
-                margin: 0rem auto;
+                margin: 5rem auto auto;
                 position: relative;
-                #wel-img-id{
-                    width: 100%;
-                    object-fit: cover;
+                #sig-img-id{
+                    width: 120%;
+                    object-fit: fill;
                 }
             }
         }
 
     }
+}
+}
 }

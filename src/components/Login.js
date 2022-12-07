@@ -43,6 +43,9 @@ const Login = (props) => {
 
     return (
         <>
+        <body className='loginbody'>
+            
+        
         <div className="container">
             <div className="main-login">
                 <div className='mt-3'>
@@ -85,6 +88,7 @@ const Login = (props) => {
                 </div>
             </div>
             </div>
+            </body>
         </>
     )
 }
