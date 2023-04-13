@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import noteContext from '../context/notes/noteContext';
 import AddNote from './AddNote';
 import Noteitem from './Noteitem';
+import HomeImage from './logo & image/home_page_image_2.png';
 
 const Notes = (props) => {
 
@@ -89,7 +90,7 @@ const Notes = (props) => {
             <div className="container row my-3">
                 <h2>Your Notes</h2>
                 <div className="container">
-                    {notes.length === 0 && <img src="https://cdn.dribbble.com/users/2666881/screenshots/11346959/media/eea44d0bd2ba581f2087172a3891caba.png" alt="Girl in a jacket" width="650" height="450"></img>}
+                    {notes.length === 0 && <img src={HomeImage} alt="Girl in a jacket" width="650" height="450"></img>}
                 </div>
                 {notes.map((note) => {
                     return <Noteitem key={note._id} updateNote={updateNote} showAlert={showAlert} note={note} />
