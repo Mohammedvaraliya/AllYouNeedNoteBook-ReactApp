@@ -1,7 +1,8 @@
+require('dotenv').config()
 const mongoose = require('mongoose');
 
-const server = '127.0.0.1:27017';
-const database = 'AllYouNeedNotebook';
+const server = process.env.REACT_APP_server;
+const database = process.env.REACT_APP_database;
 
 const mongoURI = `mongodb://${server}/${database}?directConnection=true&readPreference=primary`;
 
