@@ -1,20 +1,27 @@
 require('dotenv').config()
 const mongoose = require('mongoose');
 
-const server = process.env.REACT_APP_server;
-const database = process.env.REACT_APP_database;
+const username = process.env.REACT_APP_DB_USERNAME;
+const password = process.env.REACT_APP_DB_PASSWORD;
+const clusterName = process.env.REACT_APP_DB_CLUSTERNAME;
+const databaseName = process.env.REACT_APP_DB_DATABASENAME;
 
-const mongoURI = `mongodb://${server}/${database}?directConnection=true&readPreference=primary`;
+const mongoURI = `mongodb+srv://${username}:${password}@${clusterName}.egn05zd.mongodb.net/${databaseName}?retryWrites=true&w=majority`;
 
 const connectToMongo = async () => {
     try {
-        await mongoose.connect(mongoURI, ()=>{
-        console.log("Connected to mongo successfully");
-    })
+      const mongooseOptions = {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 5000,
+      };
+      const mongooseConnection = await mongoose.connect(mongoURI, mongooseOptions);
+      console.log('Connected to MongoDB Atlas successfully');
+      return mongooseConnection;
     } catch (error) {
-        console.log("Failed to connect to MongoDB", error)
+      console.log('Failed to connect to MongoDB Atlas', error);
+      process.exit(1);
     }
-    
-}
-
-module.exports = connectToMongo;
+  };
+  
+  module.exports = connectToMongo;
