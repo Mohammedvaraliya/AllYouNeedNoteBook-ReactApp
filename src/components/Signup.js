@@ -10,7 +10,7 @@ const Signup = (props) => {
   const [credentials, seCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
   let nevigate = useNavigate();
 
-  const host = "http://localhost:5000";
+  const host = "https://allyouneednotebook-reactapp.onrender.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();

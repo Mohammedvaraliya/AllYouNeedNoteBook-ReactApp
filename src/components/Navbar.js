@@ -5,7 +5,7 @@ const Navbar = (props) => {
 
     const { userDetail, userName, showAlert } = props;
 
-    const host = "http://localhost:5000";
+    const host = "https://allyouneednotebook-reactapp.onrender.com";
 
     let nevigate = useNavigate();
 
