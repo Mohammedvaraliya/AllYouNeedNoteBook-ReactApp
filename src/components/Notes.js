@@ -90,7 +90,7 @@ const Notes = (props) => {
             <div className="container row my-3">
                 <h2>Your Notes</h2>
                 <div className="container">
-                    {notes.length === 0 && <img src={HomeImage} alt="Girl in a jacket" width="650" height="450"></img>}
+                    {notes.length === 0 && <img src={HomeImage} alt="home image" width="600" height="490"></img>}
                 </div>
                 {notes.map((note) => {
                     return <Noteitem key={note._id} updateNote={updateNote} showAlert={showAlert} note={note} />
