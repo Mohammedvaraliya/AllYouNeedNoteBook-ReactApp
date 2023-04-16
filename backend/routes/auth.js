@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const User = require('../models/User');
 const router = express.Router();
@@ -6,7 +7,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const fetchuser = require('../middleware/fetchuser');
 
-const JWT_SECRET = 'VaraliyaIsCSEngeneEr'
+const JWT_SECRET = process.env.REACT_APP_JWT_SECRET_KEY
 
 // ROUTE 1: Creating a User using : POST "/api/auth/createuser". No login required
 router.post('/createuser', [

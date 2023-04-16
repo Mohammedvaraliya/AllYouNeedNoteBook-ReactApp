@@ -1,5 +1,6 @@
+require('dotenv').config()
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'VaraliyaIsCSEngeneEr'
+const JWT_SECRET = process.env.REACT_APP_JWT_SECRET_KEY
 
 const fetchuser = (req, res, next) => {
     // Get the user from jwt and add idd to req object
