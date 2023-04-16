@@ -15,7 +15,7 @@ import { useState } from 'react';
 
 function App() {
 
-  const host = "http://localhost:5000";
+  const host = "https://allyouneednotebook-reactapp.onrender.com";
 
   const [alert, setAlert] = useState(null);
 
