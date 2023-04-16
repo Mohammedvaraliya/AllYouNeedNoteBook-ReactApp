@@ -13,7 +13,7 @@ AllYouNeedNoteBook-ReactApp is a notebook app that allows users to create an acc
 
 ### Demo and OverView
 
-AllYouNeedNoteBook-ReactApp is currently deployed on Netlify at https://allyouneednotebook-reactapp.netlify.app.
+AllYouNeedNoteBook-ReactApp is currently deployed on Netlify at <b>https://allyouneednotebook-reactapp.netlify.app</b>.
 
 
 ### Contributing
