@@ -15,6 +15,36 @@ AllYouNeedNoteBook-ReactApp is a notebook app that allows users to create an acc
 
 AllYouNeedNoteBook-ReactApp is currently deployed on Netlify at <b>https://allyouneednotebook-reactapp.netlify.app</b>.
 
+**App Preview :**
+
+<table width="100%"> 
+<tr>
+<td width="50%">      
+&nbsp; 
+<br>
+<p align="center">
+  Authentication Page
+</p>
+<img src="https://github.com/Mohammedvaraliya/AllYouNeedNoteBook-ReactApp/assets/95087498/5763dde1-2ddb-47d9-9f4d-d215783d2707">
+</td> 
+<td width="50%">
+<br>
+<p align="center">
+  Feed Home
+</p>
+<img src="https://github.com/Mohammedvaraliya/AllYouNeedNoteBook-ReactApp/assets/95087498/6cc6479d-51dc-411d-986b-ca8f5cb1d495">
+</td>
+</tr>
+<tr>
+<td width="50%">
+<br>
+<p align="center">
+  Edit Note Functionality
+</p>
+<img src="https://github.com/Mohammedvaraliya/AllYouNeedNoteBook-ReactApp/assets/95087498/ab680d79-397f-49ca-ad83-edde31c8565d">
+</td>
+</tr>
+</table>
 
 ### Contributing
 
