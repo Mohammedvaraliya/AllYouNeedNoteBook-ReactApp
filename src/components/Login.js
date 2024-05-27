@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "./Loader";
-import style from "./css/Login.css";
 
 const Login = (props) => {
   const { showAlert, userDetail } = props;
